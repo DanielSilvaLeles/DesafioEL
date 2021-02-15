@@ -23,14 +23,14 @@ describe('Testes de locação de veiculo', () => {
         "placa": "QQQ2313",
         "qtd_horas": 2
       });
+    expect(res.statusCode).toEqual(200);
     
     const {valorLocacao} = res.body;
     
     await request(app)
       .delete('/veiculo/')
       .send({placa: 'QQQ2313'});
-
-    expect(res.statusCode).toEqual(200);
+   
     expect(valorLocacao).toEqual(240);
   });
 });
